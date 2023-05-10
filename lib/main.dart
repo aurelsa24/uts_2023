@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget { // widget yang digunakan untuk menampilkan tampilan atau komponen yang tidak perlu mengubah keadaan atau state-nya selama aplikasi berjalan
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {  //metode yang digunakan mengembalikan widget atau tampilan yang akan ditampilkan pada layar aplikasi
     return MaterialApp(
-      title: 'Baca Buku',
+      title: 'Baca Buku', //parameter yang digunakan pada widget 
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -15,17 +15,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+class MyHomePage extends StatefulWidget { //widget yang digunakan untuk menampilkan tampilan atau komponen yang tidak perlu mengubah keadaan atau state-nya selama aplikasi berjalan
+  MyHomePage({Key? key, required this.title}) : super(key: key); //konstruktor dari MyHomePage yang digunakan membuat objek dari kelas myHomePage
 
-  final String title;
+  final String title; // deklarasi variable title
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState(); //method yang digunakan untuk membuat objek dari kelas _MyHomePageState
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<String> books = [
+  List<String> books = [ //list judul buku yang akan ditampilkan pada aplikasi
     'Buku Filosofi Teras',
     'Buku Atomic Habits',
     'Buku Nanti Kita Cerita Tentang Hari ini',
@@ -38,14 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
   String bookContent = '';
   List<String> readBooks = [];
 
-  void readBook(String title) {
+  void readBook(String title) { //method yang didefinisikan di dalam kelas (widget) yang digunakan untuk mengeksekusi suatu aksi atau tindakan ketika method tersebut dipanggil atau dijalankan.
     setState(() {
       isReading = true;
       bookContent = 'Novel yang berjudul Sebuah Seni Untuk Bersikap Bodo Amat bercerita tentang seseorang yang bernama Charles Bukowski yang mempunyai masa lalu yang kelam, suka mabuk-mabukan, berjudi, mempermainkan wanita, kasar, tukang utang dan seorang penyair. Dia bercita-cita menjadi seorang penulis terkenal namun karya-karyanya selalu ditolak oleh hampir disetiap majalah, jurnal-jurnal, surat kabar dan penerbit lainnya. Semua penerbit tersebut tidak mau menerbitkan karyanya dengan alasan tulisannya yang kasar, menjijikkan dan tidak bermoral. Berpuluh tahun Bukowski hidup sebagai penyair dan kehidupan yang buruk, sampai pada akhirnya ada seorang editor yang tertarik akan karya Bukowski sehingga editor tersebut mau membantu untuk menerbitkan karya Bukowski. Mulai dari situlah Bukowski menulis karya-karya dan menjadi sukses. Novel ini merupakan cerita dibalik kesuksesan Bukowski yang sesungguhnya. Dia merasa “nyaman” dengan dirinya yang dianggap sebagai sebuah kegagalan. $title';
     });
   }
 
-  void markAsRead(String title) {
+  void markAsRead(String title) { //Method ini digunakan untuk melakukan aksi menandai sebuah buku dengan judul yang diberikan pada parameter title sebagai sudah dibaca.
     setState(() {
       isReading = false;
       readBooks.add(title);
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //method yang didefinisikan di dalam sebuah kelas (widget) dan digunakan untuk mengembalikan tampilan (widget) dari kelas tersebut.
     if (isReading) {
       return Scaffold(
         appBar: AppBar(
